@@ -1,6 +1,7 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=zippyusedautos';
-    $username = 'root';
+    $dsn = 'mysql:host=pxukqohrckdfo4ty.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=hnwmc5g21co1445v';
+    $username = 'jrlvsjo47diaivlp';
+    $password = 'hkkaaztkrtgmb375'
 
 
     try {
