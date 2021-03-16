@@ -69,3 +69,4 @@
             $vehicle = get_vehicle_by_price();
             include ('autoFrontPage.php');
     }
+
