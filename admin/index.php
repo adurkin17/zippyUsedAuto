@@ -1,5 +1,5 @@
 <?php
-    require('C:\xampp\htdocs\ZippyAuto\model\database.php');
+    require('..model\database.php');
     require('C:\xampp\htdocs\ZippyAuto\admin\model\vehicle_db.php');
     require('C:\xampp\htdocs\ZippyAuto\admin\model\makes_db.php');
     require('C:\xampp\htdocs\ZippyAuto\admin\model\type_db.php');

@@ -1,9 +1,9 @@
 <?php
-    require('..\model\database.php');
-    require('..\admin\model\vehicle_db.php');
-    require('..\admin\model\makes_db.php');
-    require('..\admin\model\type_db.php');
-    require('..\admin\model\class_db.php');
+    require('model\database.php');
+    require('admin\model\vehicle_db.php');
+    require('admin\model\makes_db.php');
+    require('admin\model\type_db.php');
+    require('admin\model\class_db.php');
 
     $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
     $classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
