@@ -5,6 +5,10 @@
     require('model/type_db.php');
     require('model/class_db.php');
 
+    $types = get_type();
+    $make = get_make();
+    $class = get_new_class();
+
     $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
     $classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
     $typeID = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
