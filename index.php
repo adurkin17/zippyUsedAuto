@@ -39,9 +39,9 @@
             {
                 $vehicle = get_vehicle_by_price();
             }
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
+            $make = makeDB::get_make();
+            $class = classDB::get_new_class();
+            $type = typeDB::get_type();
             include('view/autoFrontPage.php');
             break;
         case "vehicle_year":
@@ -61,12 +61,15 @@
             {
                 $vehicle = get_vehicle_by_year();
             }
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
+            $make = makeDB::get_make();
+            $class = classDB::get_new_class();
+            $type = typeDB::get_type();
             include('view/autoFrontPage.php');
             break;
         default:
+        $make = makeDB::get_make();
+        $class = classDB::get_new_class();
+        $type = typeDB::get_type();
             include ('view/autoFrontPage.php');
     }
 
