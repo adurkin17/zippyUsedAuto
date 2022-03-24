@@ -42,7 +42,7 @@
             $make = get_make();
             $class = get_new_class();
             $type = get_type();
-            include('autoFrontPage.php');
+            include('view/autoFrontPage.php');
             break;
         case "vehicle_year":
             if($classID)
@@ -64,9 +64,9 @@
             $make = get_make();
             $class = get_new_class();
             $type = get_type();
-            include('autoFrontPage.php');
+            include('view/autoFrontPage.php');
             break;
         default:
-            include ('autoFrontPage.php');
+            include ('view/autoFrontPage.php');
     }
 
