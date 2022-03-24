@@ -67,10 +67,6 @@
             include('autoFrontPage.php');
             break;
         default:
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
-            $vehicle = get_vehicle_by_price();
             include ('autoFrontPage.php');
     }
 
