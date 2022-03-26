@@ -1,13 +1,13 @@
 <?php
-    require('model/database.php');
-    require('model/vehicle_db.php');
-    require('model/makes_db.php');
-    require('model/type_db.php');
-    require('model/class_db.php');
+    include('model/type_db.php');
+    include('model/database.php');
+    include('model/vehicle_db.php');
+    include('model/makes_db.php');
+    include('model/class_db.php');
 
-    $types = get_type();
-    $make = get_make();
-    $class = get_new_class();
+    $types = typeDB::get_type();
+    $make = makeDB::get_make();
+    $class = classDB::get_new_class();
 
     $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
     $classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
@@ -70,6 +70,7 @@
         $make = makeDB::get_make();
         $class = classDB::get_new_class();
         $type = typeDB::get_type();
-            include ('view/autoFrontPage.php');
+        $vehicle = get_vehicle_by_year();
+        include ('view/autoFrontPage.php');
     }
 

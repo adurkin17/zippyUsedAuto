@@ -1,9 +1,9 @@
 <?php
-    require('model/database.php');
-    require('model/vehicle_db.php');
-    require('model/makes_db.php');
-    require('model/type_db.php');
-    require('model/class_db.php');
+    require('../model/database.php');
+    require('../model/vehicle_db.php');
+    require('../model/makes_db.php');
+    require('../model/type_db.php');
+    require('../model/class_db.php');
 
     $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
     $classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
@@ -43,10 +43,10 @@
             {
                 $vehicle = get_vehicle_by_price();
             }
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
-            include('frontPage.php');
+            $make = makeDB::get_make();
+            $class = classDB::get_new_class();
+            $type = typeDB::get_type();
+            include('view/frontPage.php');
             break;
         case "vehicle_year":
             if($classID)
@@ -65,51 +65,51 @@
             {
                 $vehicle = get_vehicle_by_year();
             }
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
-            include('frontPage.php');
+            $make = makeDB::get_make();
+            $class = classDB::get_new_class();
+            $type = typeDB::get_type();
+            include('view/frontPage.php');
             break;
         case "vehicle":
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
-            include('vehicle_add.php');
+            $make = makeDB::get_make();
+            $class = classDB::get_new_class();
+            $type = typeDB::get_type();
+            include('view/vehicle_add.php');
             break;
         case "list_class":
-            $class = get_new_class_ID();
-            include('class_list.php');
+            $class = classDB::get_new_class_ID();
+            include('view/class_list.php');
             break;
         case "list_make":
-            $make = get_make_ID();
-            include('make_list.php');
+            $make = makeDB::get_make_ID();
+            include('view/make_list.php');
             break;
         case "list_type":
-            $type = get_type_ID();
-            include('type_list.php');
+            $type = typeDB::get_type_ID();
+            include('view/type_list.php');
             break;
         case "add_class":
-            add_class($class_name);
+            classDB::add_class($class_name);
             header("Location: .?action=list_class");
             break;
         case "add_type":
-            add_type($type_name);
+            typeDB::add_type($type_name);
             header("Location: .?action=list_type");
             break;
         case "add_make":
-            add_make($make_name);
+            makeDB::add_make($make_name);
             header("Location: .?action=list_make");
             break;
         case "delete_class":
-            delete_class($classID);
+            classDB::delete_class($classID);
             header("Location: .?action=list_class");
             break;
         case "delete_make":
-            delete_make($makeID);
+            makeDB::delete_make($makeID);
             header("Location: .?action=list_make");
             break;
         case "delete_type":
-            delete_type($typeID);
+            typeDB::delete_type($typeID);
             header("Location: .?action=list_type");
             break;
         case "add_vehicle":
@@ -121,9 +121,9 @@
             header("Location: .?action=front_page");
             break;
         default:
-            $make = get_make();
-            $class = get_new_class();
-            $type = get_type();
+            $make = makeDB::get_make();
+            $class = classDB::get_new_class();
+            $type = typeDB::get_type();
             $vehicle = get_vehicle_by_price();
-            include ('frontPage.php');
+            include ('view/frontPage.php');
     }

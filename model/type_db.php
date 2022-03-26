@@ -1,8 +1,7 @@
 <?php 
-class typeDB {
+class typeDB{
 
-
-    function get_type()
+    public static function get_type()
     {
         global $db;
         $query = 'SELECT * FROM type ORDER BY Type';
@@ -13,7 +12,7 @@ class typeDB {
         return $type;
     }
 
-    function get_type_ID()
+    public static function get_type_ID()
     {
         global $db;
         $query = 'SELECT * FROM type ORDER BY ID';
@@ -24,7 +23,7 @@ class typeDB {
         return $type;
     }
 
-    function add_type($type_name)
+    public static function add_type($type_name)
     {
         global $db;
         $query = 'INSERT INTO type (Type) VALUES (:typeName)';
@@ -34,7 +33,7 @@ class typeDB {
         $statement-> closeCursor();
     }
 
-    function delete_type($typeID)
+    public static function delete_type($typeID)
     {
         global $db;
         $query ='DELETE FROM type WHERE ID = :type_id';

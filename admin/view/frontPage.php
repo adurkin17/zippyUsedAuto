@@ -1,12 +1,9 @@
 <?php
-include ('header.php'); ?>
+include ('../view/header.php'); ?>
 
 <section id="list" class = "list">
-    <header class = "list__row list__header">
-        <h1>Zippy's Admin </h1>
-    </header>
     <form action = "." method = "post">
-        <label> Make: </label>
+    <nav>
         <select name = "makeID">
             <option  value="">Select Make </option>
             <?php foreach($make as $makes) : ?>
@@ -15,8 +12,6 @@ include ('header.php'); ?>
             </option>
             <?php endforeach; ?>
          </select>
-         <div>
-         <label> Type: </label>
         <select name = "typeID">
             <option  value="">Select Type </option>
             <?php foreach($type as $types) : ?>
@@ -25,9 +20,6 @@ include ('header.php'); ?>
             </option>
             <?php endforeach; ?>
          </select>
-         </div>
-         <div>
-         <label> Class: </label>
         <select name = "classID">
             <option  value="">Select Class </option>
             <?php foreach($class as $classes) : ?>
@@ -36,49 +28,58 @@ include ('header.php'); ?>
             </option>
             <?php endforeach; ?>
          </select>
-         </div>
-         <br>
         <input type = "radio" id = "Year" name = "action"  value = "vehicle_year">
         <label>Year</label>
         <input type = "radio" id = "Price" name = "action" value = "vehicle_price">
         <label>Price</label>
         <input type="submit" value = "submit">
     </form>
+            </nav>
+            </section>
     <?php if($vehicle) { ?>
 
     <br>
 
-        <div class = "list__row">
-            <div class = "list__item">
-                <table>
-                    <tr>
-                        <th>Year</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Price</th>
-                        <th>Class</th>
-                        <th>Type</th>
-                    </tr>
-                </table>
+            <table>
+                <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Type</th>
+                    <th>Class</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
                 <?php foreach ($vehicle as $used) : ?>
-                <table>
-                    <tr>
-                        <th><?= $used['Year'] ?></th>
-                        <th> <?= $used['Make'] ?> </th>
-                        <th> <?= $used['Model'] ?> </th>
-                        <th> <?= $used['Price'] ?></th>
-                        <th> <?= $used['Class'] ?></th>
-                        <th><?= $used['type'] ?></th>
-                    <form action = "." method = "post">
+                <tr>
+                    <td><?= $used['Year']; ?></td>
+                    <?php if ($used['Make']) { ?>
+                    <td><?= $used['Make']; ?></td>
+                    <?php } else { ?>
+                    <td>None</td>
+                    <?php } ?>
+                    <td><?= $used['Model']; ?></td>
+                    <?php if ($used['type']) { ?>
+                    <td><?= $used['type']; ?></td>
+                    <?php } else { ?>
+                    <td>None</td>
+                    <?php } ?>
+                    <?php if ($used['Class']) { ?>
+                    <td><?= $used['Class']; ?></td>
+                    <?php } else { ?>
+                    <td>None</td>
+                    <?php } ?>
+                    <td><?= "$".number_format($used['Price'], 2); ?></td>
+                    <td>
                         <input type = "hidden" name = "action" value="delete_vehicle">
-                        <input type = "hidden" name = "vehicleID" value="<?= $used['ID']?>">
-                        <th><button type= "submit"> Delete </button></th>
-                    </form>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <?php endforeach ?>
+                        <button type= "submit"> Delete </button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
         <?php } else { ?>
         <br>
             <p> There is no used Car.</p>

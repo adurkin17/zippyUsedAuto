@@ -1,7 +1,7 @@
 <?php 
 class makeDB{
 
-    function get_make()
+    public static function get_make()
     {
         global $db;
         $query = 'SELECT * FROM makes ORDER BY Make';
@@ -12,7 +12,7 @@ class makeDB{
         return $make;
     }
 
-    function get_make_ID()
+    public static function get_make_ID()
     {
         global $db;
         $query = 'SELECT * FROM makes ORDER BY ID';
@@ -23,7 +23,7 @@ class makeDB{
         return $make;
     }
 
-    function add_make($make_name)
+    public static function add_make($make_name)
     {
         global $db;
         $query = 'INSERT INTO makes (Make) VALUES (:makeName)';
@@ -33,7 +33,7 @@ class makeDB{
         $statement-> closeCursor();
     }
 
-    function delete_make($makeID)
+    public static function delete_make($makeID)
     {
         global $db;
         $query ='DELETE FROM makes WHERE ID = :make_id';

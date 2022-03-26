@@ -2,7 +2,7 @@
 class classDB{
 
 
-    function get_new_class()
+    public static function get_new_class()
     {
         global $db;
         $query = 'SELECT * FROM class ORDER BY Class';
@@ -13,7 +13,7 @@ class classDB{
         return $class;
     }
 
-    function get_new_class_ID()
+    public static function get_new_class_ID()
     {
         global $db;
         $query = 'SELECT * FROM class ORDER BY ID';
@@ -24,7 +24,7 @@ class classDB{
         return $class;
     }
 
-    function add_class($class_name)
+    public static function add_class($class_name)
     {
         global $db;
         $query = 'INSERT INTO class (Class) VALUES (:className)';
@@ -34,7 +34,7 @@ class classDB{
         $statement-> closeCursor();
     }
 
-    function delete_class($classID)
+    public static function delete_class($classID)
     {
         global $db;
         $query ='DELETE FROM class WHERE ID = :class_id';
