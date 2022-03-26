@@ -73,8 +73,11 @@ include ('../view/header.php'); ?>
                     <?php } ?>
                     <td><?= "$".number_format($used['Price'], 2); ?></td>
                     <td>
-                        <input type = "hidden" name = "action" value="delete_vehicle">
-                        <button type= "submit"> Delete </button>
+                        <form action "." method = "post">
+                            <input type="hidden" name="action" value="delete_vehicle">
+                            <input type="hidden" name="vehicleID" value="<?= $used['ID']; ?>">
+                            <input type="submit" value="Delete">
+                        </form>
                     </td>
                 </tr>
                 <?php endforeach; ?>
